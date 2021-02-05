@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}">Insert title here</title>
+<link href="../static/css/pokemon.css" th:href="@{/css/pokemon.css}"
+	rel="stylesheet" />
+<link href="../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body>
+
+	<div class="pokemon">
+
+		<div class="pokemon-cabecera">
+			<img src="../static/images/pokemon.png" alt="pokemonIMG"
+				th:src="@{/images/pokemon.png}" />
+		</div>
+
+		<div class="pokemon-cuerpo">
+			<p>
+				POKEMONES: <span th:text="${count}"></span>
+			</p>
+			<table class="table">
+				<thead class="table-dark">
+					<tr>
+						<th>Nombre</th>
+						<th>Url</th>
+					</tr>
+				</thead>
+				<tbody th:each="data :${data}">
+					<tr>
+						<td th:text="${data.name}"></td>
+						<td th:text="${data.url}"></td>
+					</tr>
+				</tbody>
+			</table>
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-end">
+					<li class="page-item disabled"><a class="page-link" href="#"
+						tabindex="-1" aria-disabled="true">Previous</a></li>
+					<li class="page-item"><a class="page-link" href="#">Next</a></li>
+				</ul>
+			</nav>
+		</div>
+
+	</div>
+
+</body>
+</html>
